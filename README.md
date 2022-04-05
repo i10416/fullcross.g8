@@ -1,4 +1,4 @@
-A [Giter8][g8] template for ...!
+A [Giter8][g8] template for full cross project against jvm, js and native platform!
 
 Template license
 ----------------
