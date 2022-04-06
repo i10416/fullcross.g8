@@ -15,6 +15,7 @@ inThisBuild(
       "Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0")
     ),
     homepage := Some(url("$homepage$")),
+    versionScheme := Some("early-semver"),
     developers := List(
       Developer(
         "$githubId$",
