@@ -1,5 +1,9 @@
 A [Giter8][g8] template for full cross project against jvm, js and native platform!
 
+```shell
+g8 i10416/fullcross.g8
+```
+
 Template license
 ----------------
 Written in 2022 by Yoichiro Ito contact.110416+fullcross@gmail.com
