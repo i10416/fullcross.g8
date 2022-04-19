@@ -37,7 +37,7 @@ inThisBuild(
 
 lazy val root = (project in file(".")).settings(
   name := "$name$"
-)
+).aggregate(core.projectRefs: _*)
 
 lazy val core = (projectMatrix in file("core"))
   .settings(
