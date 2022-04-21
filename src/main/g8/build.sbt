@@ -42,7 +42,7 @@ lazy val root = (project in file("."))
 
 lazy val core = (projectMatrix in file("core"))
   .settings(
-    name := "core",
+    name := "$name$-core",
     scalacOptions ++= Seq("-feature", "-deprecation") ++ {
       if (scalaVersion.value.startsWith("2.12")) Seq("-language:higherKinds")
       else Nil
