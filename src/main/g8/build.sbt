@@ -1,7 +1,6 @@
 val V = new {
   val scala212 = "2.12.15"
   val scala213 = "2.13.8"
-  val scala30 = "3.0.2"
   val scala31 = "3.1.1"
 }
 
@@ -35,16 +34,20 @@ inThisBuild(
   )
 )
 
-lazy val root = (project in file(".")).settings(
-  name := "$name$"
-).aggregate(core.projectRefs: _*)
+lazy val root = (project in file("."))
+  .settings(
+    name := "$name$"
+  )
+  .aggregate(core.projectRefs: _*)
 
 lazy val core = (projectMatrix in file("core"))
   .settings(
-    name := "core"
+    name := "core",
+    scalacOptions ++= Seq("-feature", "-deprecation") ++ {
+      if (scalaVersion.value.startsWith("2.12")) Seq("-language:higherKinds")
+      else Nil
+    }
   )
-  .jvmPlatform(scalaVersions =
-    Seq(V.scala212, V.scala213, V.scala30, V.scala31)
-  )
-  .jsPlatform(scalaVersions = Seq(V.scala212, V.scala213, V.scala30, V.scala31))
+  .jvmPlatform(scalaVersions = Seq(V.scala212, V.scala213, V.scala31))
+  .jsPlatform(scalaVersions = Seq(V.scala212, V.scala213, V.scala31))
   .nativePlatform(scalaVersions = Seq(V.scala212, V.scala213, V.scala31))
