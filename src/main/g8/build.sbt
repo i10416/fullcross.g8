@@ -1,7 +1,7 @@
 val V = new {
   val scala212 = "2.12.15"
   val scala213 = "2.13.8"
-  val scala31 = "3.1.1"
+  val scala31 = "3.1.2"
 }
 
 resolvers += Resolver.sonatypeRepo("snapshots")
@@ -15,6 +15,10 @@ inThisBuild(
     ),
     homepage := Some(url("$homepage$")),
     versionScheme := Some("early-semver"),
+    scalacOptions ++= Seq(
+      "-feature",
+      "-deprecation"
+    ),
     developers := List(
       Developer(
         "$githubId$",
@@ -43,7 +47,7 @@ lazy val root = (project in file("."))
 lazy val core = (projectMatrix in file("core"))
   .settings(
     name := "$name$-core",
-    scalacOptions ++= Seq("-feature", "-deprecation") ++ {
+    scalacOptions ++= {
       if (scalaVersion.value.startsWith("2.12")) Seq("-language:higherKinds")
       else Nil
     }
