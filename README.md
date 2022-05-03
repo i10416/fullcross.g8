@@ -1,10 +1,17 @@
-A [Giter8][g8] template for full cross project against jvm, js and native platform!
+# fullcross.g8
+
+## About
+A [Giter8][g8] template for full cross project against jvm, js and native platform
 
 ```shell
 g8 i10416/fullcross.g8
 ```
 
-Release
+## Release
+
+### setup gpg
+
+1: generate key
 
 ```sh
  gpg --gen-key
@@ -22,9 +29,18 @@ gpg --keyserver keyserver.ubuntu.com --send-keys $LONG_ID
 gpg --armor --export-secret-keys $LONG_ID | base64 -w0
 ```
 
+
+2: export `PGP_PASSPHRASE`,`PGP_SECRET`,`SONATYPE_PASSWORD` and `SONATYPE_USERNAME` at https://github.com/`id`/`repo`/settings/secrets/actions
+
+
+3: push tag
+
 ```sh
 git tag -a v0.0.1 -m "v0.0.1"
+git push origin v0.0.1
 ```
+
+
 
 
 Template license
