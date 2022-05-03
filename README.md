@@ -4,6 +4,29 @@ A [Giter8][g8] template for full cross project against jvm, js and native platfo
 g8 i10416/fullcross.g8
 ```
 
+Release
+
+```sh
+ gpg --gen-key
+```
+
+```sh
+export LONG_ID=
+```
+
+```sh
+gpg --keyserver keyserver.ubuntu.com --send-keys $LONG_ID
+```
+
+```sh
+gpg --armor --export-secret-keys $LONG_ID | base64 -w0
+```
+
+```sh
+git tag -a v0.0.1 -m "v0.0.1"
+```
+
+
 Template license
 ----------------
 Written in 2022 by Yoichiro Ito contact.110416+fullcross@gmail.com
