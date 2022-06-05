@@ -5,21 +5,21 @@ $description$
 
 | scala version | pre-release                                                                                                                                                                                                        | release                                                                                                                               |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 2.12          | [![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/https/s01.oss.sonatype.org/$org$/$name$_2.12.svg)](https://s01.oss.sonatype.org/content/repositories/snapshots/$org;format="packaged"$/$name$_2.12/) | [![Maven Central](https://img.shields.io/maven-central/v/$org$/$name$_2.12.svg)](https://search.maven.org/artifact/$org$/$name$_2.12) |
-| 2.13          | [![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/https/s01.oss.sonatype.org/$org$/$name$_2.13.svg)](https://s01.oss.sonatype.org/content/repositories/snapshots/$org;format="packaged"$/$name$_2.13/) | [![Maven Central](https://img.shields.io/maven-central/v/$org$/$name$_2.13.svg)](https://search.maven.org/artifact/$org$/$name$_2.13) |
-| 3.1           | [![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/https/s01.oss.sonatype.org/$org$/$name$_3.1.svg)](https://s01.oss.sonatype.org/content/repositories/snapshots/$org;format="packaged"$/$name$_3.1/)   | [![Maven Central](https://img.shields.io/maven-central/v/$org$/$name$_3.1.svg)](https://search.maven.org/artifact/$org$/$name$_3.1)   |
+| 2.12          | [![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/https/s01.oss.sonatype.org/$org$/$name$-core_2.12.svg)](https://s01.oss.sonatype.org/content/repositories/snapshots/$org;format="packaged"$/$name$-core_2.12/) | [![Maven Central](https://img.shields.io/maven-central/v/$org$/$name$-core_2.12.svg)](https://search.maven.org/artifact/$org$/$name$-core_2.12) |
+| 2.13          | [![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/https/s01.oss.sonatype.org/$org$/$name$-core_2.13.svg)](https://s01.oss.sonatype.org/content/repositories/snapshots/$org;format="packaged"$/$name$-core_2.13/) | [![Maven Central](https://img.shields.io/maven-central/v/$org$/$name$-core_2.13.svg)](https://search.maven.org/artifact/$org$/$name$-core_2.13) |
+| 3.1           | [![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/https/s01.oss.sonatype.org/$org$/$name$-core_3.1.svg)](https://s01.oss.sonatype.org/content/repositories/snapshots/$org;format="packaged"$/$name$-core_3.1/)   | [![Maven Central](https://img.shields.io/maven-central/v/$org$/$name$-core_3.1.svg)](https://search.maven.org/artifact/$org$/$name$-core_3.1)   |
 
 
 ## Install
 
 sbt
 ```scala
-libraryDependencies  += "$org$" %% "$name$" % "0.0.1"
+libraryDependencies  += "$org$" %% "$name$-core" % "0.0.1"
 ```
 
 Mill
 ```scala
-def ivyDeps = Agg(ivy"$org$::$name$:0.0.1")
+def ivyDeps = Agg(ivy"$org$::$name$-core:0.0.1")
 ```
 
 ## How to Use

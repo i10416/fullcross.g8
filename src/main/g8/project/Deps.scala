@@ -6,4 +6,5 @@ object Deps {
     Seq(
       "org.scalameta" %%% "munit" % "1.0.0-M4"
     )
+  )
 }
