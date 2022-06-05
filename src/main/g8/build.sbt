@@ -50,7 +50,8 @@ lazy val core = (projectMatrix in file("core"))
     scalacOptions ++= {
       if (scalaVersion.value.startsWith("2.12")) Seq("-language:higherKinds")
       else Nil
-    }
+    },
+    libraryDependencies ++= munit.value.map(_ % Test)
   )
   .jvmPlatform(scalaVersions = Seq(V.scala212, V.scala213, V.scala31))
   .jsPlatform(scalaVersions = Seq(V.scala212, V.scala213, V.scala31))
