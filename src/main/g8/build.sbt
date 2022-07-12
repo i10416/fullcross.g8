@@ -4,7 +4,8 @@ val V = new {
   val scala31 = "3.1.2"
 }
 
-resolvers += Resolver.sonatypeRepo("snapshots")
+resolvers ++= Resolver.sonatypeOssRepos("snapshots")
+resolvers ++= Resolver.sonatypeOssRepos("releases")
 
 inThisBuild(
   Seq(
@@ -15,10 +16,6 @@ inThisBuild(
     ),
     homepage := Some(url("$homepage$")),
     versionScheme := Some("early-semver"),
-    scalacOptions ++= Seq(
-      "-feature",
-      "-deprecation"
-    ),
     developers := List(
       Developer(
         "$githubId$",
@@ -38,7 +35,16 @@ inThisBuild(
   )
 )
 
+lazy val noPublishSettings = Seq(
+  publish := (()),
+  publishLocal := (()),
+  publishTo := None
+)
+
+
+
 lazy val root = (project in file("."))
+  .settings(noPublishSettings)
   .settings(
     name := "$name$"
   )
@@ -48,7 +54,7 @@ lazy val core = (projectMatrix in file("core"))
   .settings(
     name := "$name$-core",
     scalacOptions ++= {
-      if (scalaVersion.value.startsWith("2.12")) Seq("-language:higherKinds")
+      if (scalaVersion.value.startsWith("2.12")) Seq("-language:higherKinds","-Ypartial-unification")
       else Nil
     },
     libraryDependencies ++= munit.value.map(_ % Test)
