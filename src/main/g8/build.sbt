@@ -41,8 +41,6 @@ lazy val noPublishSettings = Seq(
   publishTo := None
 )
 
-
-
 lazy val root = (project in file("."))
   .settings(noPublishSettings)
   .settings(
@@ -54,7 +52,8 @@ lazy val core = (projectMatrix in file("core"))
   .settings(
     name := "$name$-core",
     scalacOptions ++= {
-      if (scalaVersion.value.startsWith("2.12")) Seq("-language:higherKinds","-Ypartial-unification")
+      if (scalaVersion.value.startsWith("2.12"))
+        Seq("-language:higherKinds", "-Ypartial-unification")
       else Nil
     },
     libraryDependencies ++= munit.value.map(_ % Test)
