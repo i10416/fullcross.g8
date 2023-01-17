@@ -1,3 +1,5 @@
+Global / onChangedBuildSource := ReloadOnSourceChanges
+
 val V = new {
   val scala212 = "2.12.16"
   val scala213 = "2.13.8"
